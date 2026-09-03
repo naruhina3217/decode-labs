@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Task Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Task Manager</h1>
+        <p>Manage your tasks using a REST API</p>
+    </header>
+
+    <main>
+
+        <!-- Create Task -->
+        <section class="card">
+
+            <h2>Create New Task</h2>
+
+            <form id="taskForm">
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="Enter task title"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        placeholder="Enter task description"
+                    ></textarea>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="priority">
+                            Priority
+                        </label>
+
+                        <select id="priority">
+                            <option value="low">
+                                Low
+                            </option>
+
+                            <option value="medium" selected>
+                                Medium
+                            </option>
+
+                            <option value="high">
+                                High
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assignedTo">
+                            Assign To
+                        </label>
+
+                        <select id="assignedTo">
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="dueDate">
+                        Due Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dueDate"
+                    >
+                </div>
+
+                <button type="submit">
+                    Create Task
+                </button>
+
+            </form>
+
+            <p id="message"></p>
+
+        </section>
+
+
+        <!-- Filters -->
+        <section class="card">
+
+            <h2>Filter Tasks</h2>
+
+            <div class="filters">
+
+                <select id="statusFilter">
+
+                    <option value="">
+                        All Statuses
+                    </option>
+
+                    <option value="pending">
+                        Pending
+                    </option>
+
+                    <option value="in-progress">
+                        In Progress
+                    </option>
+
+                    <option value="completed">
+                        Completed
+                    </option>
+
+                </select>
+
+
+                <select id="priorityFilter">
+
+                    <option value="">
+                        All Priorities
+                    </option>
+
+                    <option value="low">
+                        Low
+                    </option>
+
+                    <option value="medium">
+                        Medium
+                    </option>
+
+                    <option value="high">
+                        High
+                    </option>
+
+                </select>
+
+
+                <button onclick="loadTasks()">
+                    Apply Filters
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Tasks -->
+        <section class="card">
+
+            <div class="task-header">
+
+                <h2>Tasks</h2>
+
+                <button onclick="loadTasks()">
+                    Refresh
+                </button>
+
+            </div>
+
+            <div id="tasksContainer">
+
+                <p>Loading tasks...</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
